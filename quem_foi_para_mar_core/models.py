@@ -35,7 +35,7 @@ class Viagem(models.Model):
     tripulacao = models.CharField("Nome dos tripulantes", max_length=254)
     embarcacao_retornou = models.BooleanField("Retornou ?", default=False)
     embarcacao_id = models.ForeignKey(Embarcacao, on_delete=models.PROTECT)
-    pescador_id = models.ForeignKey(Pescador, null=True, on_delete=models.PROTECT)
+    pescador_id = models.ForeignKey(Pescador, default=1, on_delete=models.PROTECT)
 
     def __str__(self):
         return self.destino
