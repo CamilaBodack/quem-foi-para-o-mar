@@ -21,7 +21,7 @@ class ViagemViewSet(viewsets.ModelViewSet):
     serializer_class = ViagemSerializer
 
     def list_barcos(request):
-        barcos_no_mar_hoje = Viagem.objects.filter(data_partida__lte=timezone.now()).order_by('data_partida')
+        barcos_no_mar_hoje = Viagem.objects.filter(data_partida=timezone.now()).order_by('data_partida')
         return render(request, 'quem_foi_para_mar_core/geral.html', {'barcos_no_mar_hoje': barcos_no_mar_hoje})
 
 

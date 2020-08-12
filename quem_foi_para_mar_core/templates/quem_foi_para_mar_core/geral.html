@@ -15,10 +15,14 @@
       <h3>Barcos que estão no mar hoje</h3>
 </div>
 
-  {% for barco in barcos_no_mar_hoje %}
+<div class="barcos-hoje">
+
+    {{barcos_no_mar_hoje}}
+
+</div>
 
   <div class="post">
-
+      {% for barco in barcos_no_mar_hoje %}
     <p>Data de partida: {{barco.data_partida}}
       <p>Destino: {{barco.destino}}</p>
       <p>Data de chegada prevista: {{barco.data_chegada_prevista}}</p>
