@@ -31,7 +31,8 @@ class Viagem(models.Model):
         verbose_name_plural = "Viagens"
     destino = models.CharField("Destino", max_length=254)
     data_partida = models.DateField("Data de partida", auto_now=False)
-    data_chegada_prevista = models.DateField("Data de chegada prevista", auto_now=False)
+    data_chegada_prevista = models.DateField("Data de chegada prevista",
+                                             auto_now=False)
     tripulacao = models.CharField("Nome dos tripulantes", max_length=254)
     embarcacao_retornou = models.BooleanField("Retornou ?", default=False)
     embarcacao_id = models.ForeignKey(Embarcacao, on_delete=models.PROTECT)

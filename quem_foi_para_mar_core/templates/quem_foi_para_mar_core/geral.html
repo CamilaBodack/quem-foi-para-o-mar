@@ -8,7 +8,25 @@
 <body>
   <h3>Bem vindo</h3>
   <p>Barcos que estão no mar hoje</p>
+
+
+  {% for barco in barcos_no_mar_hoje %}
+
+  <div>
+
+    <p>Data de partida: {{barco.data_partida}}
+      <p>Destino: {{barco.destino}}</p>
+      <p>Data de chegada prevista: {{barco.data_chegada_prevista}}</p>
+      <p>Tripulantes: {{barco.tripulacao}}</p>
+      <p>Embarção: {{barco.embarcacao_id}}</p>
+      <p>Embarcação retornou ?: {{barco.embarcacao_retornou}}
+      <p>Registrado por:{{pescador_id}}</p>
+
+  </div>
+
+  {% endfor %}
+
+
+
 </body>
-
-
 </html>
