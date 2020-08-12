@@ -1,26 +1,30 @@
+{% load static %}
 <html>
-
   <head>
-    <title>Quem foi para o mar ?</title>
-    </head>
+      <title>Quem foi para o mar ?</title>
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+      <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="{% static 'css/quem_foi_para_mar_core.css' %}">
+  </head>
 
 
 <body>
-  <h3>Bem vindo</h3>
-  <p>Barcos que estão no mar hoje</p>
-
+  <div class="page-header">
+      <h1>Bem vindo</h1>
+      <h3>Barcos que estão no mar hoje</h3>
+</div>
 
   {% for barco in barcos_no_mar_hoje %}
 
-  <div>
+  <div class="post">
 
     <p>Data de partida: {{barco.data_partida}}
       <p>Destino: {{barco.destino}}</p>
       <p>Data de chegada prevista: {{barco.data_chegada_prevista}}</p>
       <p>Tripulantes: {{barco.tripulacao}}</p>
       <p>Embarção: {{barco.embarcacao_id}}</p>
-      <p>Embarcação retornou ?: {{barco.embarcacao_retornou}}
-      <p>Registrado por:{{pescador_id}}</p>
+      <p>Embarcação retornou ?: {{barco.embarcacao_retornou}}</p>
 
   </div>
 

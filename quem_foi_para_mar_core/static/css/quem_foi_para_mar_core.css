@@ -1,0 +1,22 @@
+h1, h2, h3, h4, h5, h5 {
+     color: #ffffff;
+     font-family: 'Lobster';
+     text-align: center;
+}
+
+body {
+    padding-left: 15px;
+    font-family: 'sans-serif';
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.page-header {
+    background-color: #00008B;
+    color: #ffffff;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+    align-items: center;
+    justify-content: center;
+}
