@@ -16,23 +16,26 @@
 </div>
 
 <div class="barcos-hoje">
-
-    {{barcos_no_mar_hoje}}
-
+  {% for barco in barcos_no_mar_hoje %}
+    <p><b>Destino</b>:{{barco.destino}}</p>
+  {% endfor %}
 </div>
+
 
   <div class="post">
       {% for barco in barcos_no_mar_hoje %}
-    <p>Data de partida: {{barco.data_partida}}
-      <p>Destino: {{barco.destino}}</p>
-      <p>Data de chegada prevista: {{barco.data_chegada_prevista}}</p>
-      <p>Tripulantes: {{barco.tripulacao}}</p>
-      <p>Embarção: {{barco.embarcacao_id}}</p>
-      <p>Embarcação retornou ?: {{barco.embarcacao_retornou}}</p>
-
+    <ul>
+        <li>Destino: {{barco.destino}}</li>
+        <li>Data de partida: {{barco.data_partida}}</li>
+        <li>Data de chegada prevista: {{barco.data_chegada_prevista}}</li>
+        <li>Tripulantes: {{barco.tripulacao}}</li>
+        <li>Embarção: {{barco.embarcacao_id}}</li>
+        <li>Embarcação retornou ?: {{barco.embarcacao_retornou}}</li>
+    </ul>
+      {% endfor %}
   </div>
 
-  {% endfor %}
+
 
 
 

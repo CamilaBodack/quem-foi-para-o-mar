@@ -1,4 +1,4 @@
-h1, h2, h3, h4, h5, h5 {
+h1, h2, h3 {
      color: #ffffff;
      font-family: 'Lobster';
      text-align: center;
@@ -26,5 +26,7 @@ body {
 }
 
 .post{
-
+  align-items: center;
+  text-align: justify;
+  color: #000000;
 }

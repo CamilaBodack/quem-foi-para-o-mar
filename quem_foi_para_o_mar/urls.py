@@ -16,7 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('geral/', include('quem_foi_para_mar_core.urls'))
+    path('geral/', include('quem_foi_para_mar_core.urls')),
 ]
