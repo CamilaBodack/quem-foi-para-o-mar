@@ -1,43 +1,21 @@
-{% load static %}
-<html>
-  <head>
-      <title>Quem foi para o mar ?</title>
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-      <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-      <link rel="stylesheet" href="{% static 'css/quem_foi_para_mar_core.css' %}">
-  </head>
+{% extends "quem_foi_para_mar_core/base.html" %}
+  {% block content %}
+    {% for barco in barcos_no_mar_hoje %}
+    <div>
+        <p><b>Destino</b>:{{barco.destino}}</p>
+              {% endfor %}
+            </div>
 
 
-<body>
-  <div class="page-header">
-      <h1>Bem vindo</h1>
-      <h3>Barcos que estão no mar hoje</h3>
-</div>
-
-<div class="barcos-hoje">
-  {% for barco in barcos_no_mar_hoje %}
-    <p><b>Destino</b>:{{barco.destino}}</p>
+            <div class="post">
+                {% for barco in barcos_no_mar_hoje %}
+            <ul>
+                <li>Destino: {{barco.destino}}</li>
+                <li>Data de partida: {{barco.data_partida}}</li>
+                <li>Data de chegada prevista: {{barco.data_chegada_prevista}}</li>
+                <li>Tripulantes: {{barco.tripulacao}}</li>
+                <li>Embarção: {{barco.embarcacao_id}}</li>
+                <li>Embarcação retornou ?: {{barco.embarcacao_retornou}}</li>
+            </ul>
   {% endfor %}
-</div>
-
-
-  <div class="post">
-      {% for barco in barcos_no_mar_hoje %}
-    <ul>
-        <li>Destino: {{barco.destino}}</li>
-        <li>Data de partida: {{barco.data_partida}}</li>
-        <li>Data de chegada prevista: {{barco.data_chegada_prevista}}</li>
-        <li>Tripulantes: {{barco.tripulacao}}</li>
-        <li>Embarção: {{barco.embarcacao_id}}</li>
-        <li>Embarcação retornou ?: {{barco.embarcacao_retornou}}</li>
-    </ul>
-      {% endfor %}
-  </div>
-
-
-
-
-
-</body>
-</html>
+  {% endblock %}
