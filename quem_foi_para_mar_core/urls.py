@@ -16,6 +16,7 @@ urlpatterns = [
     path('pescador/', views.PescadorViewSet),
     path('embarcacao/', views.EmbarcacaoViewSet),
     path('viagem/', views.ViagemViewSet),
-    path('contato/', views.ContatoViewSet)
+    path('contato/', views.ContatoViewSet),
+    path('criar/viagem/', views.ViagemViewSet.criar_viagem, name='Criar viagem'),
 
 ]

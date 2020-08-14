@@ -1,12 +1,10 @@
 {% extends "quem_foi_para_mar_core/base.html" %}
   {% block content %}
     {% for barco in barcos_no_mar_hoje %}
-    <div>
-        <p><b>Destino</b>:{{barco.destino}}</p>
+            <div>
+              <p><b>Destino</b>:{{barco.destino}}</p>
               {% endfor %}
             </div>
-
-
             <div class="post">
                 {% for barco in barcos_no_mar_hoje %}
             <ul>
