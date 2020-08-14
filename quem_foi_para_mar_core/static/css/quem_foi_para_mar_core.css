@@ -32,7 +32,7 @@ body {
 }
 
 .post-form{
-  align-items: center;
-  text-align: justify;
+  align-items: flex-start;
+  text-align: left;
   color: #000000;
 }
