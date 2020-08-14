@@ -12,11 +12,11 @@ router.register(r"contato", ContatoViewSet)
 
 
 urlpatterns = [
-    path('', views.ViagemViewSet.list_barcos, name='Listar barcos'),
+    path('', views.ViagemViewSet.list_barcos, name='list_barcos'),
     path('pescador/', views.PescadorViewSet),
     path('embarcacao/', views.EmbarcacaoViewSet),
     path('viagem/', views.ViagemViewSet),
     path('contato/', views.ContatoViewSet),
-    path('criar/viagem/', views.ViagemViewSet.criar_viagem, name='Criar viagem'),
+    path('criar_viagem/', views.ViagemViewSet.criar_viagem, name='criar_viagem')
 
 ]
