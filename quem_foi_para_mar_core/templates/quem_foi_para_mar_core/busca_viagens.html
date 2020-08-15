@@ -2,8 +2,8 @@
 {% load bootstrap %}
 {% block content %}
         <form method="get">
-            {{ filter.form|bootstrap }} 
-            <button type="submit">Busca</button>
+            {{ filter.form|bootstrap }}
+            <button type="submit" class="save btn btn-primary">Busca</button>
         </form>
   <ul>
     {% for viagem in filter.qs %}
