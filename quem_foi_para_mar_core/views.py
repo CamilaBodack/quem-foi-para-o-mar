@@ -12,9 +12,9 @@ from django.contrib.auth import login
 
 @api_view(['GET', 'POST'])
 def cadastro(request):
-    ''' Utilizada para cadastrar novos usuários no banco por meio da interface.
-        Ações de deleção e update de informação são feitas via dashboard Django
-        admin (/admin)
+    ''' Utilizada para cadastrar novos usuários na base.
+        Delete e update de usuários estão sendo feitas
+        via dashboard Django admin (/admin)
     '''
     if request.method == "GET":
         return render(request, "quem_foi_para_mar_core/cadastro.html",
@@ -95,6 +95,7 @@ class ViagemViewSet(viewsets.ModelViewSet):
         return render(request, 'quem_foi_para_mar_core/cadastrar_viagem.html',
                       {'form': form})
 
+    @api_view(['GET'])
     def detalhes_viagem(request, pk):
         post = get_object_or_404(Viagem, pk=pk)
         return render(request, 'quem_foi_para_mar_core/detalhe_viagem.html',
@@ -105,3 +106,9 @@ class ViagemViewSet(viewsets.ModelViewSet):
         barcos_no_mar_hoje = Viagem.objects.filter(data_partida=timezone.now()).order_by('data_partida')
         return render(request, 'quem_foi_para_mar_core/index.html',
                       {'barcos_no_mar_hoje': barcos_no_mar_hoje})
+
+    @api_view(['GET'])
+    def lista_viagens(request):
+        todas_viagens = Viagem.objects.all()
+        return render(request, 'quem_foi_para_mar_core/historico_viagens.html',
+                      {'todas_viagens': todas_viagens})

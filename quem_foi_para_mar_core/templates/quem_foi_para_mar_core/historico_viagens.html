@@ -1,0 +1,14 @@
+{% extends "quem_foi_para_mar_core/base.html" %}
+  {% block content %}
+            <div class="post">
+                {% for viagem in todas_viagens %}
+            <ul>
+                <li>Destino: {{viagem.destino}}</li>
+                <li>Data de partida: {{viagem.data_partida}}</li>
+                <li>Data de chegada prevista: {{viagem.data_chegada_prevista}}</li>
+                <li>Tripulantes: {{viagem.tripulacao}}</li>
+                <li>Embarção: {{viagem.embarcacao_id}}</li>
+                <li>Embarcação retornou ?: {{viagem.embarcacao_retornou}}</li>
+            </ul>
+  {% endfor %}
+  {% endblock %}
