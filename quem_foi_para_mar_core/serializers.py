@@ -1,5 +1,11 @@
 from rest_framework import serializers
-from .models import Pescador, Embarcacao, Viagem, Contato
+from .models import Pescador, Embarcacao, Viagem, Contato, User
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ("nome", "email", "senha")
 
 
 class PescadorSerializer(serializers.ModelSerializer):

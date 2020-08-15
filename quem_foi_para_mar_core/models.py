@@ -1,4 +1,14 @@
 from django.db import models
+from django.core.validators import MinLengthValidator
+
+
+class User(models.Model):
+    nome = models.CharField("Nome", max_length=50)
+    email = models.EmailField("Email")
+    senha = models.CharField("Senha", max_length=50, validators=[MinLengthValidator])
+
+    def __str__(self):
+        return self.nome
 
 
 class Pescador(models.Model):
