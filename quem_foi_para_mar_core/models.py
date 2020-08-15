@@ -10,6 +10,7 @@ class Pescador(models.Model):
     endereco = models.CharField("Endereço", max_length=254)
     telefone = models.CharField("Telefone", max_length=50)
     email = models.EmailField("Email")
+    contato = models.CharField("Contato em terra(nome e telefone)", default=0, max_length=150)
 
     def __str__(self):
         return self.nome
@@ -41,17 +42,3 @@ class Viagem(models.Model):
 
     def __str__(self):
         return self.destino
-
-
-class Contato(models.Model):
-    class Meta:
-        verbose_name_plural = "Contatos"
-    nome = models.CharField("Nome", max_length=254)
-    endereco = models.CharField("Endereço", max_length=254)
-    email = models.EmailField("E-mail")
-    telefone = models.CharField("Telefone", max_length=50)
-    pescador_id = models.ForeignKey(Pescador, default=0, on_delete=models.PROTECT)
-
-
-    def __str__(self):
-        return self.nome

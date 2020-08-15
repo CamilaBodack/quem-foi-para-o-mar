@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import Viagem, Pescador
+from .models import Viagem, Pescador, Embarcacao
 
 
 class CriarNovoUsuarioForm(UserCreationForm):
@@ -18,4 +18,10 @@ class ViagemForm(forms.ModelForm):
 class PescadorForm(forms.ModelForm):
     class Meta:
         model = Pescador
-        fields = ('nome', 'endereco', 'telefone', 'email')
+        fields = ('nome', 'endereco', 'telefone', 'email', 'contato')
+
+
+class EmbarcacaoForm(forms.ModelForm):
+    class Meta:
+        model = Embarcacao
+        fields = ('nome', 'numeracao', 'modelo', 'caracteristicas')

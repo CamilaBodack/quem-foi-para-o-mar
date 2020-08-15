@@ -22,9 +22,10 @@
       <a class="navbar-brand" href="/index"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
     </div>
   <ul class="nav navbar-nav navbar-left">
-          <li><a href="{% url "criar_viagem" %}">Criar Viagem</a></li>
-          <li><a href="{% url "criar_pescador" %}">Criar Pescador</a></li>
-          <li><a href="{% url "cadastro" %}">Cadastro</a></li>
+          <li><a href="{% url "cadastrar_viagem" %}">Nova Viagem</a></li>
+          <li><a href="{% url "cadastrar_pescador" %}">Registrar Pescador</a></li>
+          <li><a href="{% url "cadastrar_embarcacao" %}">Registrar Embarcação</a></li>
+          <li><a href="{% url "cadastro" %}">Cadastre-se</a></li>
     </ul>
   </nav>
       </div>
@@ -33,7 +34,6 @@
               <div class="col-md-8">
                 <br>
               {% block content %}
-              <br>
               {% endblock %}
               </div>
           </div>

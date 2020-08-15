@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import PescadorViewSet, EmbarcacaoViewSet, ViagemViewSet, ContatoViewSet
+from .views import PescadorViewSet, EmbarcacaoViewSet, ViagemViewSet
 from rest_framework import routers
 
 
@@ -8,19 +8,15 @@ router = routers.DefaultRouter()
 router.register(r"pescador", PescadorViewSet)
 router.register(r"embarcacao", EmbarcacaoViewSet)
 router.register(r"viagem", ViagemViewSet)
-router.register(r"contato", ContatoViewSet)
 
 
 urlpatterns = [
+    path('cadastro/', views.cadastro, name="cadastro"),
     path('', views.ViagemViewSet.lista_barcos, name='lista_barcos'),
-    path('pescador/', views.PescadorViewSet),
-    path('embarcacao/', views.EmbarcacaoViewSet),
-    path('viagem/', views.ViagemViewSet),
-    path('contato/', views.ContatoViewSet),
-    path('criar_viagem/', views.ViagemViewSet.criar_viagem, name='criar_viagem'),
+    path('cadastrar_viagem/', views.ViagemViewSet.cadastrar_viagem, name="cadastrar_viagem"),
     path('detalhe_viagem/<int:pk>', views.ViagemViewSet.detalhes_viagem, name="detalhes_viagem"),
-    path('criar_pescador/', views.PescadorViewSet.criar_pescador, name="criar_pescador"),
+    path('cadastrar_pescador/', views.PescadorViewSet.cadastrar_pescador, name="cadastrar_pescador"),
     path('detalhe_pescador/<int:pk>', views.PescadorViewSet.detalhes_pescador, name="detalhes_pescador"),
-    path('cadastro/', views.cadastro, name="cadastro")
-
+    path('cadastrar_embarcacao/', views.EmbarcacaoViewSet.cadastrar_embarcacao, name="cadastrar_embarcacao"),
+    path('detalhe_embarcacao/<int:pk>', views.EmbarcacaoViewSet.detalhes_embarcacao, name="detalhes_embarcacao"),
 ]

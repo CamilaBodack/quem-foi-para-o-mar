@@ -1,11 +1,11 @@
 from rest_framework import serializers
-from .models import Pescador, Embarcacao, Viagem, Contato
+from .models import Pescador, Embarcacao, Viagem
 
 
 class PescadorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pescador
-        fields = ("nome", "endereco", "telefone", "email")
+        fields = ("nome", "endereco", "telefone", "email", "contato")
 
 
 class EmbarcacaoSerializer(serializers.ModelSerializer):
@@ -19,9 +19,3 @@ class ViagemSerializer(serializers.ModelSerializer):
         model = Viagem
         fields = ("destino", "data_partida", "data_chegada_prevista",
                   "tripulacao", "embarcacao_retornou")
-
-
-class ContatoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Contato
-        fields = ("nome", "endereco", "email", "telefone")
