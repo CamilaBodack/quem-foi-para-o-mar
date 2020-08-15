@@ -18,4 +18,4 @@ class ViagemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Viagem
         fields = ("destino", "data_partida", "data_chegada_prevista",
-                  "tripulacao", "embarcacao_retornou")
+                  "tripulacao")

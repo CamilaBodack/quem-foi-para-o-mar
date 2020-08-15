@@ -41,3 +41,9 @@ body {
   align-items: center;
   text-align: justify;
 }
+
+.listas{
+    border-left: solid 5px #1b809e;
+    width: 550px;
+    margin: 10px 30px;
+}

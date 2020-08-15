@@ -36,7 +36,6 @@ class Viagem(models.Model):
     data_chegada_prevista = models.DateField("Data de chegada prevista",
                                              auto_now=False)
     tripulacao = models.CharField("Nome dos tripulantes", max_length=254)
-    embarcacao_retornou = models.BooleanField("Retornou ?", default=False)
     embarcacao_id = models.ForeignKey(Embarcacao, on_delete=models.PROTECT)
     pescador_id = models.ForeignKey(Pescador, default=1, on_delete=models.PROTECT)
 

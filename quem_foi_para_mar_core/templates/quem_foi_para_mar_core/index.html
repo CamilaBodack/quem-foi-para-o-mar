@@ -2,13 +2,17 @@
   {% block content %}
             <div class="post">
                 {% for viagem in barcos_no_mar_hoje %}
-            <ul>
-                <li>Destino: {{viagem.destino}}</li>
-                <li>Data de partida: {{viagem.data_partida}}</li>
-                <li>Data de chegada prevista: {{viagem.data_chegada_prevista}}</li>
-                <li>Tripulantes: {{viagem.tripulacao}}</li>
-                <li>Embarção: {{viagem.embarcacao_id}}</li>
-                <li>Embarcação retornou ?: {{viagem.embarcacao_retornou}}</li>
-            </ul>
+                <div class="panel panel-info listas" >
+                            <div class="panel-heading">{{viagem.destino}}</div>
+                            <div class="panel-body">
+                                <ul style="list-style-type: none;">
+                                  <li>Data de partida: {{viagem.data_partida}}</li>
+                                  <li>Data de chegada prevista: {{viagem.data_chegada_prevista}}</li>
+                                  <li>Tripulantes: {{viagem.tripulacao}}</li>
+                                  <li>Embarção: {{viagem.embarcacao_id}}</li>
+                                </ul>
+                            </div>
+                        </div>
   {% endfor %}
+  </div>
   {% endblock %}

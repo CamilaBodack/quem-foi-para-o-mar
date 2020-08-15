@@ -82,6 +82,7 @@ class ViagemViewSet(viewsets.ModelViewSet):
     queryset = Viagem.objects.all()
     serializer_class = ViagemSerializer
 
+
     @api_view(['GET', 'POST'])
     def cadastrar_viagem(request):
         if request.method == "POST":
