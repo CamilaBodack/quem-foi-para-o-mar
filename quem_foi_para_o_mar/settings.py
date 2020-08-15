@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # third party apps
     'rest_framework',
     'bootstrapform',
+    'django_filters',
     # my apps
     'quem_foi_para_mar_core',
 ]

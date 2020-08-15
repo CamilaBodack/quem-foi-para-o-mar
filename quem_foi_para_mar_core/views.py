@@ -1,13 +1,14 @@
 from django.shortcuts import render
 from rest_framework import viewsets
+from rest_framework.decorators import api_view
 from django.utils import timezone
+from django.shortcuts import redirect,  get_object_or_404
+from django.contrib.auth import login
+from .filters import ViagemFilter
 from .models import Pescador, Embarcacao, Viagem
 from .serializers import (PescadorSerializer, EmbarcacaoSerializer,
                           ViagemSerializer)
-from rest_framework.decorators import api_view
 from .forms import ViagemForm, PescadorForm, CriarNovoUsuarioForm, EmbarcacaoForm
-from django.shortcuts import redirect,  get_object_or_404
-from django.contrib.auth import login
 
 
 @api_view(['GET', 'POST'])
@@ -82,7 +83,6 @@ class ViagemViewSet(viewsets.ModelViewSet):
     queryset = Viagem.objects.all()
     serializer_class = ViagemSerializer
 
-
     @api_view(['GET', 'POST'])
     def cadastrar_viagem(request):
         if request.method == "POST":
@@ -113,3 +113,9 @@ class ViagemViewSet(viewsets.ModelViewSet):
         todas_viagens = Viagem.objects.all()
         return render(request, 'quem_foi_para_mar_core/historico_viagens.html',
                       {'todas_viagens': todas_viagens})
+
+    def busca(request):
+        busca_todas_viagens = Viagem.objects.all()
+        filtro_viagens = ViagemFilter(request.GET, queryset=busca_todas_viagens)
+        return render(request, 'quem_foi_para_mar_core/busca_viagens.html',
+                      {'filter': filtro_viagens})

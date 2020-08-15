@@ -27,4 +27,5 @@ urlpatterns = [
          name="detalhes_embarcacao"),
     path('historico_viagens', views.ViagemViewSet.lista_viagens,
          name="lista_viagens"),
+    path('busca_viagens/', views.ViagemViewSet.busca, name="busca")
 ]
