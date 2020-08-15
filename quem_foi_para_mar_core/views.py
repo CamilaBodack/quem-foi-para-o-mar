@@ -13,10 +13,6 @@ from .forms import ViagemForm, PescadorForm, CriarNovoUsuarioForm, EmbarcacaoFor
 
 @api_view(['GET', 'POST'])
 def cadastro(request):
-    ''' Utilizada para cadastrar novos usuários na base.
-        Delete e update de usuários estão sendo feitas
-        via dashboard Django admin (/admin)
-    '''
     if request.method == "GET":
         return render(request, "quem_foi_para_mar_core/cadastro.html",
                       {"form": CriarNovoUsuarioForm})
@@ -114,6 +110,7 @@ class ViagemViewSet(viewsets.ModelViewSet):
         return render(request, 'quem_foi_para_mar_core/historico_viagens.html',
                       {'todas_viagens': todas_viagens})
 
+    @api_view(['GET'])
     def busca(request):
         busca_todas_viagens = Viagem.objects.all()
         filtro_viagens = ViagemFilter(request.GET, queryset=busca_todas_viagens)
