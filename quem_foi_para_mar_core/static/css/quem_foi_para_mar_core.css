@@ -36,3 +36,8 @@ body {
   text-align: left;
   color: #000000;
 }
+
+.content-container{
+  align-items: center;
+  text-align: justify;
+}
