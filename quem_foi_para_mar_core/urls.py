@@ -1,11 +1,10 @@
 from django.urls import path
 from . import views
-from .views import UserViewSet, PescadorViewSet, EmbarcacaoViewSet, ViagemViewSet, ContatoViewSet
+from .views import PescadorViewSet, EmbarcacaoViewSet, ViagemViewSet, ContatoViewSet
 from rest_framework import routers
 
 
 router = routers.DefaultRouter()
-router.register(r"users", UserViewSet)
 router.register(r"pescador", PescadorViewSet)
 router.register(r"embarcacao", EmbarcacaoViewSet)
 router.register(r"viagem", ViagemViewSet)
@@ -22,6 +21,5 @@ urlpatterns = [
     path('detalhe_viagem/<int:pk>', views.ViagemViewSet.detalhes_viagem, name="detalhes_viagem"),
     path('criar_pescador/', views.PescadorViewSet.criar_pescador, name="criar_pescador"),
     path('detalhe_pescador/<int:pk>', views.PescadorViewSet.detalhes_pescador, name="detalhes_pescador"),
-    path('users/', views.UserViewSet),
 
 ]

@@ -1,17 +1,12 @@
 from django.shortcuts import render
 from rest_framework import viewsets
 from django.utils import timezone
-from .models import User, Pescador, Embarcacao, Viagem, Contato
-from .serializers import (UserSerializer, PescadorSerializer, EmbarcacaoSerializer,
+from .models import Pescador, Embarcacao, Viagem, Contato
+from .serializers import (PescadorSerializer, EmbarcacaoSerializer,
                           ViagemSerializer, ContatoSerializer)
 from rest_framework.decorators import api_view
 from .forms import ViagemForm, PescadorForm
 from django.shortcuts import redirect,  get_object_or_404
-
-
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
 
 
 class PescadorViewSet(viewsets.ModelViewSet):

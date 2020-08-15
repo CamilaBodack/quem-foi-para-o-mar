@@ -11,14 +11,14 @@
 
   <body>
       <div class="page-header">
-          <h1>Bem-vindo</h1>
+          <h2>Bem-vindo, {{ user.username|default:'Pescador' }}!</h2>
           <h3>Barcos que estão no mar hoje</h3>
       </div>
       <div class="post-form">
-            <h2><a href="{% url "criar_viagem" %}">Criar Viagem</h2></a>
-      </div>
-      <div class="post-form">
-            <h2><a href="{% url "criar_pescador" %}">Criar Usuario</h2></a>
+          <nav>
+                <a href="{% url "criar_viagem" %}">Criar Viagem</a> |
+                <a href="{% url "criar_pescador" %}">Criar Pescador</a>
+          </nav>
       </div>
       <div class="content container">
           <div class="row">
