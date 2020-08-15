@@ -1,4 +1,4 @@
-from django.urls import path, include
+from django.urls import path
 from . import views
 from .views import PescadorViewSet, EmbarcacaoViewSet, ViagemViewSet, ContatoViewSet
 from rest_framework import routers
@@ -13,7 +13,6 @@ router.register(r"contato", ContatoViewSet)
 
 urlpatterns = [
     path('', views.ViagemViewSet.lista_barcos, name='lista_barcos'),
-    #url(r"^accounts/", include("django.contrib.auth.urls")),
     path('pescador/', views.PescadorViewSet),
     path('embarcacao/', views.EmbarcacaoViewSet),
     path('viagem/', views.ViagemViewSet),
@@ -22,5 +21,6 @@ urlpatterns = [
     path('detalhe_viagem/<int:pk>', views.ViagemViewSet.detalhes_viagem, name="detalhes_viagem"),
     path('criar_pescador/', views.PescadorViewSet.criar_pescador, name="criar_pescador"),
     path('detalhe_pescador/<int:pk>', views.PescadorViewSet.detalhes_pescador, name="detalhes_pescador"),
+    path('cadastro/', views.cadastro, name="cadastro")
 
 ]
