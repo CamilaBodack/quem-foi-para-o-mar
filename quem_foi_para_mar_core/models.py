@@ -10,7 +10,8 @@ class Pescador(models.Model):
     endereco = models.CharField("Endereço", max_length=254)
     telefone = models.CharField("Telefone", max_length=50)
     email = models.EmailField("Email")
-    contato = models.CharField("Contato em terra(nome e telefone)", default=0, max_length=150)
+    contato = models.CharField("Contato em terra(nome e telefone)",
+                               default=0, max_length=150)
 
     def __str__(self):
         return self.nome
