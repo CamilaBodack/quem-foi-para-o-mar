@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import PescadorViewSet, EmbarcacaoViewSet, ViagemViewSet
+from .views import PescadorViewSet, EmbarcacaoViewSet, ViagemViewSet, LoginView
 from rest_framework import routers
 
 
@@ -27,5 +27,6 @@ urlpatterns = [
          name="detalhes_embarcacao"),
     path('historico_viagens', views.ViagemViewSet.lista_viagens,
          name="lista_viagens"),
-    path('busca_viagens/', views.ViagemViewSet.busca, name="busca")
-]
+    path('busca_viagens/', views.ViagemViewSet.busca, name="busca"),
+    path('login/', LoginView.as_view(), name='login'),
+    ]

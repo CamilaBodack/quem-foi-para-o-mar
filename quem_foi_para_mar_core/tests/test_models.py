@@ -162,3 +162,8 @@ class ViagemModelTest(TestCase):
         viagem = Viagem.objects.get(id=1)
         max_length = viagem._meta.get_field('tripulacao').max_length
         self.assertEquals(max_length, 254)
+
+    def test_object_is_nome(self):
+        viagem = Viagem.objects.get(id=1)
+        expected_object_name = f'{viagem.destino}'
+        self.assertEquals(expected_object_name, str(viagem))

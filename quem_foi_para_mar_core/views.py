@@ -8,7 +8,19 @@ from .filters import ViagemFilter
 from .models import Pescador, Embarcacao, Viagem
 from .serializers import (PescadorSerializer, EmbarcacaoSerializer,
                           ViagemSerializer)
-from .forms import ViagemForm, PescadorForm, CriarNovoUsuarioForm, EmbarcacaoForm
+from .forms import ViagemForm, PescadorForm, CriarNovoUsuarioForm, EmbarcacaoForm, LoginForm
+from django.contrib.auth import views as views_auth
+
+
+class LoginView(views_auth.LoginView):
+    form_class = LoginForm
+    redirect_authenticated_user = True
+
+    def get_success_url(self):
+        # write your logic here
+        if self.request.user.is_superuser:
+            return '/admin'
+        return '/index'
 
 
 @api_view(['GET', 'POST'])
