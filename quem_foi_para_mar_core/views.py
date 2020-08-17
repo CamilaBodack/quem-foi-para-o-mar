@@ -21,7 +21,7 @@ class LoginView(views_auth.LoginView):
             return '/admin'
         return '/index'
 
-
+    
 @api_view(['GET', 'POST'])
 def cadastro(request):
     if request.method == "GET":
