@@ -2,6 +2,8 @@ from django.urls import path
 from . import views
 from .views import PescadorViewSet, EmbarcacaoViewSet, ViagemViewSet, LoginView
 from rest_framework import routers
+from django.conf import settings
+from django.conf.urls.static import static
 
 router = routers.DefaultRouter()
 router.register(r"pescador", PescadorViewSet)
@@ -28,4 +30,4 @@ urlpatterns = [
          name="lista_viagens"),
     path('busca_viagens/', views.ViagemViewSet.busca, name="busca"),
     path('login/', LoginView.as_view(), name='login'),
-    ]
+    ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
