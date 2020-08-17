@@ -90,4 +90,3 @@ __pypackages__/
 # Other
 *.vscode
 *.env
-*.sqlite3
