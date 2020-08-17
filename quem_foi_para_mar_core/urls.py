@@ -3,7 +3,6 @@ from . import views
 from .views import PescadorViewSet, EmbarcacaoViewSet, ViagemViewSet, LoginView
 from rest_framework import routers
 
-
 router = routers.DefaultRouter()
 router.register(r"pescador", PescadorViewSet)
 router.register(r"embarcacao", EmbarcacaoViewSet)
