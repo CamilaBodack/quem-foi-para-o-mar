@@ -28,7 +28,8 @@ docker-compose up
 - Install requirements-dev.txt
 - In root of project run:
 
-```python manage.py runserver
+```
+python manage.py runserver
 ```
 
 - Available in http://127.0.0.1:8000/index/
