@@ -10,6 +10,8 @@ from .serializers import (PescadorSerializer, EmbarcacaoSerializer,
                           ViagemSerializer)
 from .forms import ViagemForm, PescadorForm, CriarNovoUsuarioForm, EmbarcacaoForm, LoginForm
 from django.contrib.auth import views as views_auth
+from rest_framework.permissions import IsAuthenticated
+from rest_framework_simplejwt.authentication import JWTAuthentication
 
 
 class LoginView(views_auth.LoginView):
@@ -21,7 +23,7 @@ class LoginView(views_auth.LoginView):
             return '/admin'
         return '/index'
 
-    
+
 @api_view(['GET', 'POST'])
 def cadastro(request):
     if request.method == "GET":
@@ -38,6 +40,8 @@ def cadastro(request):
 class PescadorViewSet(viewsets.ModelViewSet):
     queryset = Pescador.objects.all()
     serializer_class = PescadorSerializer
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
 
     @api_view(['GET', 'POST'])
     def cadastrar_pescador(request):
@@ -63,6 +67,8 @@ class PescadorViewSet(viewsets.ModelViewSet):
 class EmbarcacaoViewSet(viewsets.ModelViewSet):
     queryset = Embarcacao.objects.all()
     serializer_class = EmbarcacaoSerializer
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
 
     @api_view(['GET', 'POST'])
     def cadastrar_embarcacao(request):
@@ -89,6 +95,8 @@ class EmbarcacaoViewSet(viewsets.ModelViewSet):
 class ViagemViewSet(viewsets.ModelViewSet):
     queryset = Viagem.objects.all()
     serializer_class = ViagemSerializer
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
 
     @api_view(['GET', 'POST'])
     def cadastrar_viagem(request):

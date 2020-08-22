@@ -2,8 +2,8 @@ from django.urls import path
 from . import views
 from .views import PescadorViewSet, EmbarcacaoViewSet, ViagemViewSet, LoginView
 from rest_framework import routers
-from django.conf import settings
-from django.conf.urls.static import static
+from rest_framework_simplejwt import views as jwt_views
+
 
 router = routers.DefaultRouter()
 router.register(r"pescador", PescadorViewSet)
@@ -30,4 +30,6 @@ urlpatterns = [
          name="lista_viagens"),
     path('busca_viagens/', views.ViagemViewSet.busca, name="busca"),
     path('login/', LoginView.as_view(), name='login'),
-    ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path("token/", jwt_views.TokenObtainPairView.as_view(), name="token",),
+    path("refresh_token/", jwt_views.TokenRefreshView.as_view(), name="refresh_token"),
+    ]
