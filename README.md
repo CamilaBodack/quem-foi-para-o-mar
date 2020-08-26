@@ -27,14 +27,12 @@ docker-compose up
 
 - Without docker:
 
+**better run this project inside virtualenv**
+
 - Install requirements-dev.txt
 - In root of project run:
 
-- Without docker:
-
-**better run this project inside virtualenv**
-- Install requirements.txt
-- In root of project run:
+root of project run:
 
 ```
 python manage.py makemigrations
