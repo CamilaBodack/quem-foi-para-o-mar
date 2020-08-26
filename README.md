@@ -32,7 +32,6 @@ docker-compose up
 - Install requirements-dev.txt
 - In root of project run:
 
-root of project run:
 
 ```
 python manage.py makemigrations
